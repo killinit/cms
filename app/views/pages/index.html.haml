@@ -1,15 +1,10 @@
 .l-panel-content.l-panel-content--form
   .l-constrained
     .l-panel-content__row
-      .l-panel-content__col
-        - if params[:search].present?
-          %h1.l-panel-content__heading Search Results
-        - else
-          %h1.l-panel-content__heading= t('.title')
-          = paginate @pages, remote: true
-        - if @last_published_pages
-          .panel
-            = render 'last_published_pages'
+      - if params[:search].present?
+        %h1.l-panel-content__heading Search Results
+      - else
+        %h1.l-panel-content__heading= "#{t('.welcome')} #{current_user.name.split.first}"
       .l-panel-content__col
         = form_tag(comfy_admin_cms_site_pages_path, method: 'get', id: 'search-form') do
           .search.search--header
@@ -25,6 +20,15 @@
               = link_to new_site_page_path(@site), class: 'button--action button--search' do
                 %span.button__text
                   = t('.new_link')
+    .l-panel-content__row
+      .l-panel-content__col
+        - if @my_last_drafts
+          .panel
+            = render 'my_last_drafts'
+      .l-panel-content__col
+        - if @last_published_pages
+          .panel
+            = render 'last_published_pages'
 
 - content_for :right_column do
   = render 'comfy/admin/cms/sites/mirrors'

@@ -26,6 +26,21 @@ en:
         base:
           tags: Tags
 
+  comfy:
+    admin:
+      cms:
+        pages:
+          last_edit: Last edit
+          last_published_pages:
+            title: Last published pages
+          my_last_drafts:
+            title: Your draft pages
+
+  pages:
+    index:
+      new_link: New page
+      welcome: Welcome
+
   search:
     results: Search Results
   tags:

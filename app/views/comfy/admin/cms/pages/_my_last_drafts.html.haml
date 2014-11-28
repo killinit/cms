@@ -1,7 +1,7 @@
 %h2.panel__heading
-  %span.fa.fa-file-o
+  %span.fa.fa-edit
   = t('.title')
-- PagePresenter.collect(@last_published_pages).each do |page|
+- PagePresenter.collect(@my_last_drafts).each do |page|
   %p
     = link_to page.label, edit_comfy_admin_cms_site_page_path(page.site, page)
     |

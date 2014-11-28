@@ -1,4 +1,5 @@
 .table-wrapper
+  = paginate @pages, remote: true
   = form_tag(comfy_admin_cms_site_pages_url, method: :get, id: 'filter_form', remote: true) do
     %table.datatable-default.table.table--full-width
       %thead
@@ -12,3 +13,5 @@
       %tbody.js-filter-pages
         - PagePresenter.collect(@pages).each do |page|
           = render page
+
+  = paginate @pages, remote: true

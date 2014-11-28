@@ -25,6 +25,9 @@ class PagesController < Comfy::Admin::Cms::PagesController
       Comfy::Cms::Search.new(@pages, params[:search]).results
     else
       @last_published_pages = @all_pages.status(:published).reorder(updated_at: :desc).limit(4)
+      @my_last_drafts = Comfy::Cms::Page.status(:draft).joins(:revisions)
+                        .where("#{Comfy::Cms::Revision.table_name}.author_id = ?", current_user.id)
+                        .reorder(updated_at: :desc).limit(4)
       @pages.reorder(updated_at: :desc).page(params[:page])
     end
   end
