@@ -11,52 +11,24 @@ RSpec.describe RevisionData do
     end
   end
 
-  describe '.dump' do
-    let(:current_user) { double(id: 42, name: 'Luke') }
-
-    context 'when note' do
-      let(:revision_data) do
-        { current_user: current_user, note: 'A note' }
-      end
-
-      it 'returns the revision data with note text' do
-        expect(RevisionData.dump(revision_data)).to eq(
-          author: {
-            id:   42,
-            name: 'Luke'
-          },
-          note: 'A note'
-        )
-      end
-    end
-
-    context 'when event' do
-    end
-  end
-
   describe ::RevisionData::Loader do
-    subject(:loader) { described_class.new(double(data: revision_data)) }
+    let(:revision) { double(data: revision_data) }
+    subject(:loader) { described_class.new(revision) }
 
-    describe '#author' do
-      context 'when revision have author' do
-        let(:revision_data) do
-          {
-            author: {
-              name: 'Luke'
-            }
-          }
-        end
+    describe '#author_name' do
+      context 'when revision has author' do
+        let(:revision) { double(author: double(name: 'Luke')) }
 
         it 'returns author name' do
-          expect(loader.author).to eq('Luke')
+          expect(loader.author_name).to eq('Luke')
         end
       end
 
-      context 'when revision not have author' do
-        let(:revision_data) { {} }
+      context 'when revision does not have author' do
+        let(:revision) { double(author: nil) }
 
         it 'returns nil' do
-          expect(loader.author).to be_nil
+          expect(loader.author_name).to be_nil
         end
       end
     end

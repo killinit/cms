@@ -77,15 +77,15 @@ RSpec.describe PagesController do
           expect(last_revision).to_not be nil
         end
 
+        it 'saves current user' do
+          expect(last_revision.author).to eq(current_user)
+        end
+
         it 'saves the event state revision data' do
           expect(last_revision.data).to eq(
             event: 'draft',
             previous_event: nil,
-            blocks_attributes: [],
-            author: {
-              id: current_user.id,
-              name: current_user.name
-            }
+            blocks_attributes: []
           )
         end
       end
@@ -181,11 +181,7 @@ RSpec.describe PagesController do
           expect(last_revision.data.symbolize_keys).to eq(
             event: 'published',
             previous_event: 'draft',
-            blocks_attributes: [],
-            author: {
-              id: current_user.id,
-              name: current_user.name
-            }
+            blocks_attributes: []
           )
         end
       end
@@ -215,10 +211,6 @@ RSpec.describe PagesController do
 
         it 'saves the block attributes content in data revision' do
           expect(last_revision.data.symbolize_keys).to eq(
-            author: {
-              id: current_user.id,
-              name: current_user.name
-            },
             blocks_attributes: [
               {
                 identifier: 'content', content: nil

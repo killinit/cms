@@ -15,13 +15,8 @@ RSpec.describe NotesController do
 
       it 'creates the page note' do
         expect(assigns[:note]).to be_persisted
-        expect(assigns[:note].data).to eq(
-          note: 'note-text',
-          author: {
-            id:   current_user.id,
-            name: current_user.name
-          }
-        )
+        expect(assigns[:note].data).to eq(note: 'note-text')
+        expect(assigns[:note].author).to eq(current_user)
       end
 
       it 'assigns the activity log presenter' do

@@ -1,7 +1,7 @@
 class NotesController < Comfy::Admin::Cms::BaseController
   def create
     page  = @site.pages.find(params[:page_id])
-    @note = page.revisions.new(data: revision_data)
+    @note = page.revisions.new(data: revision_data, author_id: current_user.id)
 
     if params[:description].present? && @note.save
       @activity_log = ActivityLogPresenter.new(ActivityLog.parse(@note))
@@ -14,6 +14,6 @@ class NotesController < Comfy::Admin::Cms::BaseController
   private
 
   def revision_data
-    RevisionData.dump(current_user: current_user, note: params[:description])
+    { note: params[:description] }
   end
 end

@@ -3,28 +3,15 @@ module RevisionData
     Loader.new(revision).to_hash
   end
 
-  def self.dump(options)
-    current_user = options.delete(:current_user)
-
-    {
-      author: {
-        id:   current_user.id,
-        name: current_user.name
-      }
-    }.merge(options)
-  end
-
   class Loader
     attr_reader :revision
 
     delegate :id, :created_at, :data, to: :revision
+    delegate :author, to: :revision
+    delegate :name, to: :author, prefix: true, allow_nil: true
 
     def initialize(revision)
       @revision = revision
-    end
-
-    def author
-      data[:author][:name] if data[:author]
     end
 
     def text
@@ -44,7 +31,7 @@ module RevisionData
     def to_hash
       {
         id:         id,
-        author:     author,
+        author:     author_name,
         type:       type,
         text:       text,
         created_at: created_at

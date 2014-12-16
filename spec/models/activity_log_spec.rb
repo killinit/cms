@@ -5,6 +5,10 @@ RSpec.describe ActivityLog do
     let(:created_at) { Time.now }
     let(:revision) { fetch.first }
 
+    let(:author) do
+      double(name: 'user')
+    end
+
     before do
       expect(revisions).to receive(:reorder).with(created_at: :asc).and_return(revisions)
     end
@@ -15,9 +19,9 @@ RSpec.describe ActivityLog do
           double(
             id: 1,
             data: {
-              author: { name: 'user' },
               event:  'draft'
             },
+            author: author,
             created_at: created_at
           )
         ]
@@ -42,9 +46,9 @@ RSpec.describe ActivityLog do
           double(
             id: 1,
             data: {
-              author: { name: 'user' },
               note:   'note text'
             },
+            author: author,
             created_at: created_at
           )
         ]
@@ -71,6 +75,7 @@ RSpec.describe ActivityLog do
             data: {
               blocks_attributes: { identifier: 'default_page_text' }
             },
+            author: author,
             created_at: created_at
           )
         ]
