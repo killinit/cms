@@ -3,6 +3,7 @@ define(['jquery','DoughBaseComponent'], function ($, DoughBaseComponent) {
 
   var ElementHiderProto,
       defaultConfig = {
+        componentName: 'ElementHider',
         delay: 3000,
         selectors: {
           activeClass: 'is-active'

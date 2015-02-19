@@ -11,6 +11,7 @@ define([
 
   var InsertManagerProto,
       defaultConfig = {
+        componentName: 'InsertManager',
         selectors: {
           context: '[data-dough-insertmanager-context]',
           insertButton: '[data-dough-insertmanager-insert]',

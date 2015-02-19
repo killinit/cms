@@ -9,6 +9,7 @@ define([
 
   var MirrorInputValueProto,
       defaultConfig = {
+        componentName: 'MirrorInputValue',
         selectors: {
           triggerInput : '[data-dough-mirrorinputvalue-trigger]',
           targetInput : '[data-dough-mirrorinputvalue-target]'

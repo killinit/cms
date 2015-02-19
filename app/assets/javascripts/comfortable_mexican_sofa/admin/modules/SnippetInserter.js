@@ -11,6 +11,7 @@ define([
 
   var SnippetInserterProto,
       defaultConfig = {
+        componentName: 'SnippetInserter',
         selectors: {
           trigger: '[data-dough-snippetinserter-trigger]'
         },

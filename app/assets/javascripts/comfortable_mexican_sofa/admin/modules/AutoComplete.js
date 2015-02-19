@@ -2,7 +2,9 @@ define(['jquery','DoughBaseComponent','chosen'], function ($, DoughBaseComponent
   'use strict';
 
   var AutoCompleteProto,
-      defaultConfig = {};
+      defaultConfig = {
+        componentName: 'AutoComplete'
+      };
 
   function AutoComplete($el, config) {
     AutoComplete.baseConstructor.call(this, $el, config, defaultConfig);

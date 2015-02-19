@@ -11,6 +11,7 @@ define([
 
   var WordCountProto,
       defaultConfig = {
+        componentName: 'WordCount',
         selectors: {
           hiddenClass: 'is-hidden',
           display: '[data-dough-wordcount-display]'

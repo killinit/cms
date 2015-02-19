@@ -10,7 +10,9 @@ define([
   'use strict';
 
     var FileInputSubmitProto,
-        defaultConfig = {};
+        defaultConfig = {
+          componentName: 'FileInputSubmit'
+        };
 
     function FileInputSubmit($el, config) {
       FileInputSubmit.baseConstructor.call(this, $el, config, defaultConfig);

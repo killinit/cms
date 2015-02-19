@@ -9,6 +9,7 @@ define([
 
   var ElementFilterProto,
       defaultConfig = {
+        componentName: 'ElementFilter',
         selectors: {
           activeClass: 'is-active',
           trigger: '[data-dough-element-filter-trigger]',

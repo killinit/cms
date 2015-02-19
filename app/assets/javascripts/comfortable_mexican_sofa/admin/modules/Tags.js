@@ -15,6 +15,7 @@ define([
 
   var TagsProto,
       defaultConfig = {
+        componentName: 'Tags',
         uiEvents: {}
       };
 

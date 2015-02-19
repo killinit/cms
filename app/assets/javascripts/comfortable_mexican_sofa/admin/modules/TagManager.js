@@ -11,6 +11,7 @@ define([
 
   var TagManagerProto,
       defaultConfig = {
+        componentName: 'TagManager',
         selectors: {
           tagUsagePlaceholder: '[data-dough-tagmanager-usage-placeholder]',
           confirmDeleteButton: '[data-dough-tagmanager-delete]',

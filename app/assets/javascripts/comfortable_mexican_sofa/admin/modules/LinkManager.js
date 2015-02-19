@@ -15,6 +15,7 @@ define([
 
   var LinkManagerProto,
       defaultConfig = {
+        componentName: 'LinkManager',
         selectors: {
         }
       };

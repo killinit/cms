@@ -13,6 +13,7 @@ define([
 
   var DialogProto,
       defaultConfig = {
+        componentName: 'Dialog',
         selectors: {
           dialog: '[data-dough-dialog]',
           target: '[data-dough-dialog-target]',

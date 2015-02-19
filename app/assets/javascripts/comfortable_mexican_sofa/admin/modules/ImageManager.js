@@ -11,6 +11,7 @@ define([
 
   var ImageManagerProto,
       defaultConfig = {
+        componentName: 'ImageManager',
         selectors: {}
       };
 

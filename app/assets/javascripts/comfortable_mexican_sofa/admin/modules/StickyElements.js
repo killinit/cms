@@ -10,6 +10,7 @@ define([
 
   var StickyElementsProto,
       defaultConfig = {
+        componentName: 'StickyElements',
         selectors: {
           stickyElement: '[data-dough-sticky-element-target]'
         }

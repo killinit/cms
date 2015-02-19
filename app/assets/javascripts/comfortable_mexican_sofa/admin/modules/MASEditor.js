@@ -19,6 +19,7 @@ define([
 
   var MASEditorProto,
       defaultConfig = {
+        componentName: 'MASEditor',
         selectors: {
           cmsForm: '[data-dough-component="MASEditor"]',
           cmsFormSubmit: '[data-dough-maseditor-form-submit]',

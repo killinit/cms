@@ -9,6 +9,7 @@ define([
 
   var URLFormatterProto,
       defaultConfig = {
+        componentName: 'URLFormatter',
         selectors: {
           pageType: '[data-dough-urlformatter-page-type]',
           slugInput: '[data-dough-urlformatter-slug]',

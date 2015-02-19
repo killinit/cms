@@ -9,6 +9,7 @@ define([
 
   var URLTogglerProto,
       defaultConfig = {
+        componentName: 'URLToggler',
         uiEvents: {
           'change ': '_handleChange'
         }

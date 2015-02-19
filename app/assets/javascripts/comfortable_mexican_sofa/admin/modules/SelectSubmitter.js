@@ -3,6 +3,7 @@ define(['jquery','DoughBaseComponent'], function ($, DoughBaseComponent) {
 
   var SelectSubmitterProto,
       defaultConfig = {
+        componentName: 'SelectSubmitter',
         uiEvents: {
           'change': 'handleChange'
         }

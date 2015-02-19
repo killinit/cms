@@ -9,6 +9,7 @@ define([
 
   var SchedulerProto,
       defaultConfig = {
+        componentName: 'Scheduler',
         selectors: {
           scheduleButton: '[data-dough-dialog-trigger=scheduler]',
           formToSubmit: '[data-dough-scheduler-form]',

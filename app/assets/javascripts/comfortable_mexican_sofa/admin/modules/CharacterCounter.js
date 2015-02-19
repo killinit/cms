@@ -9,6 +9,7 @@ define([
 
   var CharacterCounterProto,
       defaultConfig = {
+        componentName: 'CharacterCounter',
         selectors: {
           indicator: '[data-dough-character-counter-indicator]',
           warning: '[data-dough-character-counter-warning]',

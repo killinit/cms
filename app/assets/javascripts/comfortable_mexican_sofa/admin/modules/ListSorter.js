@@ -10,6 +10,7 @@ define([
 
   var ListSorterProto,
       defaultConfig = {
+        componentName: 'ListSorter',
         selectors: {
           listOrderfield: 'data-dough-listsorter-order-field',
           itemId: 'data-dough-listsorter-item-id',
